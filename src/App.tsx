@@ -9,9 +9,18 @@ import {
 } from 'react-router-dom';
 import { useAuthContext } from 'hooks/useAuthContext';
 import styled from 'styled-components';
+import Navbar from 'components/Navbar';
 
 const Main = styled.main`
   display: flex;
+`;
+
+const Container = styled.div`
+  flex-grow: 1;
+  padding: 0 60px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 function App() {
@@ -22,20 +31,23 @@ function App() {
     <Main>
       {authIsReady && (
         <Router>
-          <Routes>
-            <Route
-              path='/'
-              element={user ? <Home /> : <Navigate to='/login' />}
-            />
-            <Route
-              path='/signup'
-              element={!user ? <Signup /> : <Navigate to='/' />}
-            />
-            <Route
-              path='/login'
-              element={!user ? <Login /> : <Navigate to='/' />}
-            />
-          </Routes>
+          <Container>
+            <Navbar />
+            <Routes>
+              <Route
+                path='/'
+                element={user ? <Home /> : <Navigate to='/login' />}
+              />
+              <Route
+                path='/signup'
+                element={!user ? <Signup /> : <Navigate to='/' />}
+              />
+              <Route
+                path='/login'
+                element={!user ? <Login /> : <Navigate to='/' />}
+              />
+            </Routes>
+          </Container>
         </Router>
       )}
     </Main>

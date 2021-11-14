@@ -22,7 +22,7 @@ const initialState: State = {
 type Actions =
   | { type: 'LOGIN'; payload: User }
   | { type: 'AUTH_IS_READY'; payload: User | null }
-  | { type: 'LOGOUT'; user: null };
+  | { type: 'LOGOUT' };
 
 interface IAuthContext {
   children: ReactNode;
