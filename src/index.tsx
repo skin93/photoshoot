@@ -4,12 +4,15 @@ import { GlobalStyle, theme } from 'styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AuthContextProvider } from 'context/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
